@@ -36,5 +36,6 @@ bash scripts/test_slam.sh
 
 #### Navigation
 ```bash
-
+roslaunch turtlebot3_gazebo turtlebot3_world.launch
+roslaunch turtlebot3_navigation turtlebot3_amcl.launch
 ```
