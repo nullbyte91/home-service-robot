@@ -25,7 +25,7 @@ roslaunch turtlebot3_gazebo turtlebot3_world.launch
 roslaunch turtlebot3_gazebo turtlebot3_gmapping.launch
 
 # Launch RVIZ for visualizing the map
-roslaunch turtlebot3_rviz_launchers view_navigation.launch
+roslaunch turtlebot3_rviz_launchers view_slam.launch
 
 # Save the maps
 rosrun map_server map_saver -f aws
@@ -38,4 +38,5 @@ bash scripts/test_slam.sh
 ```bash
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
 roslaunch turtlebot3_navigation turtlebot3_amcl.launch
+roslaunch turtlebot3_rviz_launchers view_navigation.launch
 ```
