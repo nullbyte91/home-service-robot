@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dRootPath="../../../"
+
 function launch_world(){
     # Launch world file
     xterm -e "pushd ${dRootPath}
@@ -10,11 +11,10 @@ function launch_world(){
     sleep 5
 }
 
-function launch_slam(){
-    # Perform slam gmapping
+function launch_navigation(){
     xterm -e "pushd ${dRootPath}
     source devel/setup.bash
-    roslaunch turtlebot3_gazebo turtlebot3_gmapping.launch" &
+    roslaunch turtlebot3_navigation turtlebot3_amcl.launch" &
     sleep 5
 }
 
@@ -22,23 +22,19 @@ function launch_rviz(){
     # Launch rviz 
     xterm -e "pushd ${dRootPath}
     source devel/setup.bash
-    roslaunch turtlebot3_rviz_launchers view_slam.launch" &
+    roslaunch turtlebot3_rviz_launchers view_navigation.launch" &
     sleep 5
 }
 
-function launch_teleop(){
-    # Launch teleop 
-    xterm -e "pushd ${dRootPath}
+function launch_goal(){
+    xterm -e "rosparam load ../pick_objects/config/pick_drop.yaml
+    pushd ${dRootPath}
     source devel/setup.bash
-    roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch" &
-    sleep 5
+    rosrun pick_objects pick_objects" &
 }
 
-# Main starts from here
-# Export Model path
+#Main starts from here
 launch_world
-launch_slam
+launch_navigation
 launch_rviz
-launch_teleop
-
-
+launch_goal
