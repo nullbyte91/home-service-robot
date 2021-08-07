@@ -46,7 +46,7 @@ int main(int argc, char** argv){
 
   // Check if the robot reached its goal
   if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
-    ROS_INFO("Robot reached PICK-UP zone");
+    ROS_INFO("Robot reached PICK-UP location");
     ROS_INFO("picking up package");
     // publish goal-reach status
     status_msg.data = 1;
@@ -54,7 +54,7 @@ int main(int argc, char** argv){
     goal_reach_pub.publish(status_msg);
   }
   else {
-    ROS_INFO("The robot failed to reach pick-up zone");
+    ROS_INFO("The robot failed to reach pick-up location");
     return 0;
   }
 
@@ -74,12 +74,13 @@ int main(int argc, char** argv){
   n.getParam("/drop_off_loc/qw", goal.target_pose.pose.orientation.w);
   ac.sendGoal(goal);
 
-  ROS_INFO("Heading to Drop-off zone");
-
+  ROS_INFO("Heading to Drop-off site");
+  // Wait an infinite time for the results
   ac.waitForResult();
 
   // Check if the robot reached its drop goal
   if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+    //ROS_INFO("Robot has reached DROP-OFF location");
     sleep(2);
     ROS_INFO("Dropping Package");
     // publish goal-reach status
@@ -87,7 +88,7 @@ int main(int argc, char** argv){
     goal_reach_pub.publish(status_msg);
   }
   else {
-    ROS_INFO("The robot failed to reach drop-off zone");
+    ROS_INFO("The robot failed to reach drop-off location");
   }
 
   // wait a bit before next message
