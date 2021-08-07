@@ -30,4 +30,3 @@ function launch_rviz(){
 launch_world
 launch_navigation
 launch_rviz
-launch_goal
