@@ -22,19 +22,21 @@ function launch_rviz(){
     # Launch rviz 
     xterm -e "pushd ${dRootPath}
     source devel/setup.bash
-    roslaunch turtlebot3_rviz_launchers view_navigation.launch" &
+    roslaunch turtlebot3_rviz_launchers view_markers.launch" &
     sleep 2
 }
 
-function launch_goal(){
-    xterm -e "rosparam load ../pick_objects/config/pick_drop.yaml
-    pushd ${dRootPath}
+function launch_markers(){
+    #Launch markers
+    xterm -e "pushd ${dRootPath}
     source devel/setup.bash
-    rosrun pick_objects pick_objects_node_1" &
+    rosparam load src/home_service_robot/add_markers/config/markers.yaml
+    rosrun add_markers add_markers" &
+    sleep 2
 }
 
 #Main starts from here
 launch_world
 launch_navigation
 launch_rviz
-launch_goal
+launch_markers
