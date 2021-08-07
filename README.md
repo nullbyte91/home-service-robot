@@ -183,3 +183,18 @@ bash home_service.sh
         └── turtlebot3_teleop
             └── __init__.py
 ```
+
+### ROS Packages used in this project
+<b>gmapping:</b>
+We perform SLAM and build a map of the environment with a robot equipped with laser range finder sensors or RGB-D cameras.
+
+<b>turtlebot3_teleop:</b> 
+With the keyboard_teleop.launch file, we can manually control a robot using keyboard commands.
+
+<b>turtlebot3_gazebo:</b>  
+Turtlebot3 robot used for the development.
+
+<b>aws_robo_maker:</b>
+
+Gazebo world is well suited for organizations who are building and testing robot applications for warehouse and logistics use cases.
+
