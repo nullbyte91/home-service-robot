@@ -14,7 +14,14 @@ The Path Planning basically takes as input the current location of the robot and
 ### Demo Images
 ![Service Robot view](https://github.com/nullbyte91/home_service_robot/blob/master/images/demo.gif)
 
-### Setup (Tested on Ubuntu 20.04)
+
+---
+**NOTE**<br>
+Please switch to kinetic-devel branch if your testing this code on <br>Ubuntu 16.04</br>
+
+---
+
+### Setup [Ubuntu 20.04]
 #### Dep Install
 ```bash
 sudo apt-get update && sudo apt-get install ros-noetic-dwa-local-planner ros-noetic-move-base
