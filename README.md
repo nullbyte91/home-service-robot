@@ -23,8 +23,8 @@ sudo apt-get install ros-kinetic-openslam-gmapping ros-kinetic-tf ros-kinetic-mo
 #### Build
 ```bash
 mkdir -p ~/catkin_ws/src/ && cd ~/catkin_ws/src/
-git clone https://github.com/nullbyte91/home_service_robot.git
-cd ../
+git clone https://github.com/nullbyte91/home_service_robot.git && cd home_service_robot && git checkout kinetic-devel
+cd ../../
 catkin_make
 chmod a+x src/home_service_robot/scripts/home_service.sh
 ``` 
