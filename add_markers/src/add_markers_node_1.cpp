@@ -83,7 +83,7 @@ int main( int argc, char** argv )
       sleep(1);
     }
 
-    if (state == State::PICKUP) {
+    if (state == PICKUP) {
       marker.action = visualization_msgs::Marker::ADD;
       n.getParam("/pick_up_loc/tx", marker.pose.position.x);
       n.getParam("/pick_up_loc/ty", marker.pose.position.y);
@@ -95,13 +95,13 @@ int main( int argc, char** argv )
       marker_pub.publish(marker);
       ROS_INFO("Picking up ... ");
       sleep(5);
-      state = State::HIDE;
-    } else if (state == State::HIDE) {
+      state = HIDE;
+    } else if (state == HIDE) {
       marker.action = visualization_msgs::Marker::DELETE;
       marker_pub.publish(marker);
       ROS_INFO("Hiding ...");
       sleep(5);
-      state = State::DROP;
+      state = DROP;
     } else {
       marker.action = visualization_msgs::Marker::ADD;
       n.getParam("/drop_off_loc/tx", marker.pose.position.x);

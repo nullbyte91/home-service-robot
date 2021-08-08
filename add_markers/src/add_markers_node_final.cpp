@@ -52,14 +52,15 @@ bool reach_pick_up()
   if (pose[0] <= -3.6 && pose[1] <=-8.0){
       return true;
   }
+  return false;
 }
 
 bool reach_drop_zone()
 {
-  std::cout << pose[0] << pose[1] << std::endl;
   if (pose[0] >= 1.99 && pose[1] >= 0.08){
       return true;
   }
+  return false;
 }
 
 
@@ -117,7 +118,7 @@ int main( int argc, char** argv )
 
     ros::spinOnce();
 
-    if (state == State::PICKUP) {
+    if (state == PICKUP) {
       marker.action = visualization_msgs::Marker::ADD;
       n.getParam("/pick_up_loc/tx", marker.pose.position.x);
       n.getParam("/pick_up_loc/ty", marker.pose.position.y);
@@ -145,7 +146,6 @@ int main( int argc, char** argv )
       n.getParam("/drop_off_loc/qw", marker.pose.orientation.w);
       pickup[0] = marker.pose.position.x;
       pickup[1] = marker.pose.position.y;
-      std::cout << pickup[0] << " " << pickup[1] << std::endl;
       marker_pub.publish(marker);
       if (reach_drop_zone()) {
         sleep(5);

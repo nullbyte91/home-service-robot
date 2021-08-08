@@ -14,10 +14,10 @@ The Path Planning basically takes as input the current location of the robot and
 ### Demo Images
 ![Service Robot view](https://github.com/nullbyte91/home_service_robot/blob/master/images/demo.gif)
 
-### Setup (Tested on Ubuntu 20.04)
+### Setup (Tested on Ubuntu 16.04)
 #### Dep Install
 ```bash
-sudo apt-get update && sudo apt-get install ros-noetic-dwa-local-planner ros-noetic-move-base
+sudo apt-get install ros-kinetic-openslam-gmapping ros-kinetic-tf ros-kinetic-move-base ros-kinetic-turtlebot3-msgs ros-kinetic-gazebo-ros ros-kinetic-xacro ros-kinetic-map-server ros-kinetic-turtlebot3-description ros-kinetic-amcl ros-kinetic-dwa-local-planner
 ```
 
 #### Build
@@ -31,7 +31,7 @@ chmod a+x src/home_service_robot/scripts/home_service.sh
 ### 🖖 Quick Start
 #### Home service Robot
 ```bash
-mkdir -p ~/catkin_ws/src/
+cd ~/catkin_ws/
 source devel/setup.bash
 cd src/home_service_robot/scripts/
 bash home_service.sh
