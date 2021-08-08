@@ -8,7 +8,7 @@ function launch_world(){
     source devel/setup.bash
     export GAZEBO_MODEL_PATH=`rospack find turtlebot3_gazebo`/models/aws_warehouse/:$GAZEBO_MODEL_PATH 
     roslaunch turtlebot3_gazebo turtlebot3_world.launch" &
-    sleep 2
+    sleep 5
 }
 
 function launch_navigation(){
